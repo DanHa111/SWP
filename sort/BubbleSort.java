@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BubbleSort {
 	
-	public static ArrayList<Integer> bubbleSort(ArrayList<Integer> List)	{
+	public static ArrayList<Integer> BubbleSort(ArrayList<Integer> List)	{
 		for(int i = 0; i < List.size() - 1; i++)	{
 			for(int j = 0; j < List.size() - 1 - i; j++)	{
 				if(List.get(j) > List.get(j + 1))	{
@@ -16,7 +16,7 @@ public class BubbleSort {
 		}
 		return List;
 	}
-	
+
 	public static void printList(ArrayList<Integer> List)	{
 		for(int i = 0; i < List.size(); i++)	{
 			System.out.print(List.get(i) + ", ");
@@ -24,18 +24,24 @@ public class BubbleSort {
 		}
 		System.out.println();
 	}
+	
+	public static ArrayList<Integer> randomList(int length, int bereich)	{
+		ArrayList<Integer> List = new ArrayList<>();
+		for (int i = 0; i < length; i++) {
+			List.add((int)(Math.random() * bereich));
+		}
+		return List;
+	}
 
 	public static void main(String[] args) {
-		ArrayList<Integer> List = new ArrayList<>();
-		List.add(8);
-		List.add(4);
-		List.add(7);
-		List.add(9);
-		List.add(3);
-		List.add(5);
+		ArrayList<Integer> List = randomList(10, 100);
 		printList(List);
-		List = bubbleSort(List);
+		long time = System.currentTimeMillis();
+		List = BubbleSort(List);
+		time = System.currentTimeMillis() - time;
 		printList(List);
+		System.out.println();
+		System.out.println("Zeit: " + time);
 	}
 
 }
