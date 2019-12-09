@@ -1,32 +1,36 @@
+  
 package sort;
 
 import java.util.ArrayList;
 
-public class SelectionSort {
+public class MonkeySort {
 	
-	public static ArrayList<Integer> SelectionSort(ArrayList<Integer> List)	{
-		ArrayList<Integer> newList = new ArrayList<>();
-		int biggest = getBiggest(List);
-		for(int i = 0; i < List.size(); i++)	{
-			int smallest = biggest;
-			for(int j = 0; j < List.size(); j++)	{
-				if(List.get(j) < smallest && !in(List.get(j), newList))	{
-					smallest = List.get(j);
+	public static ArrayList<Integer> shotgunSort(ArrayList<Integer> List)	{
+		ArrayList<Integer> sortedList = List;
+		ArrayList<Integer> used = new ArrayList<>();
+		while(!sorted(sortedList))	{
+			used = new ArrayList<>();
+			sortedList = new ArrayList<>();
+			for(int i = 1; i <= List.size(); i++)	{
+				int x = -1;
+				used.add(-1);
+				while(in(x, used))	{
+					x = (int)(Math.random()*List.size());
 				}
+				used.add(x);
+				sortedList.add(List.get(x));
 			}
-			newList.add(smallest);
 		}
-		return newList;
+		return sortedList;
 	}
 	
-	public static int getBiggest(ArrayList<Integer> List)	{
-		int biggest = List.get(0);
-		for(int i = 0; i < List.size(); i++)	{
-			if(List.get(i) > biggest)	{
-				biggest = List.get(i);
+	public static boolean sorted(ArrayList<Integer> List)	{
+		for(int i = 1; i < List.size(); i++)	{
+			if(List.get(i) < List.get(i - 1))	{
+				return false;
 			}
 		}
-		return biggest;
+		return true;
 	}
 	
 	public static boolean in(int i, ArrayList<Integer> numbers)	{
@@ -37,7 +41,7 @@ public class SelectionSort {
 		}
 		return false;
 	}
-
+	
 	public static void printList(ArrayList<Integer> List)	{
 		for(int i = 0; i < List.size(); i++)	{
 			System.out.print(List.get(i) + ", ");
@@ -58,7 +62,7 @@ public class SelectionSort {
 		ArrayList<Integer> List = randomList(10, 100);
 		printList(List);
 		long time = System.currentTimeMillis();
-		List = SelectionSort(List);
+		List = shotgunSort(List);
 		time = System.currentTimeMillis() - time;
 		printList(List);
 		System.out.println();
