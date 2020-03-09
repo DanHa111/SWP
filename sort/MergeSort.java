@@ -26,7 +26,7 @@ public class MergeSort {
 				return list;
 			}
 			if(right.size() == j)	{
-				list.addAll(left.subList(j, left.size()));
+				list.addAll(left.subList(i, left.size()));
 				return list;
 			}
 			
