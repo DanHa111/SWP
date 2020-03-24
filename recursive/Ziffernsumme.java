@@ -2,12 +2,16 @@ package recursive;
 
 public class Ziffernsumme {
 	
-	public static int sumOfDigits(int number)	{
-		number = Math.abs(number);
+	private static int sumOfDigitsRec(int number)	{
 		if(number / 10 == 0)	{
 			return number;
 		}
 		return sumOfDigits(number / 10) + number % 10;
+	}
+	
+	public static int sumOfDigits(int number)	{
+		number = Math.abs(number);
+		return sumOfDigitsRec(number);
 	}
 
 	public static void main(String[] args) {
