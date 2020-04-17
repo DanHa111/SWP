@@ -24,22 +24,22 @@ public class BinarySearch {
 		if(rueckgabe == -1)	{
 			return -1;
 		}
-		return index + rueckgabe;
+		return rueckgabe;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<Integer> liste = new ArrayList<>();
 //		liste.add(2);
-		liste.add(2);
-		liste.add(3);
-		liste.add(4);
+		liste.add(2); //funktioniert
+		liste.add(3); //funktioniert nicht
+		liste.add(4); //funktioniert
 //		liste.add(4);
 //		liste.add(4);
-		liste.add(5);
-		liste.add(6);
-		liste.add(7);
-		System.out.println(binarySearch(2, liste));
+		liste.add(5); //funktioniert
+		liste.add(6); //funktioniert nicht
+		liste.add(7); //funktioniert nicht
+		System.out.println(binarySearch(7, liste));
 	}
 
 }
