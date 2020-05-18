@@ -18,7 +18,24 @@ public class LinkedList {
 			it = it.next();
 		}
 		
-		it.setNext(tmp);	
+		it.setNext(tmp);
+	}
+	
+	public void add(int value, int pos) {
+		if(head == null && pos != 0)	{
+			throw new IllegalArgumentException();
+		}
+		Node tmp = head;
+		for (int i = 0; i < pos - 1; i++) {
+			if(tmp.hasNext())	{
+				tmp = tmp.next();
+			} else	{
+				throw new IllegalArgumentException();
+			}
+		}
+		Node newNode = new Node(value);
+		newNode.setNext(tmp.next());
+		tmp.setNext(newNode);
 	}
 	
 	public void delete(int pos) {
