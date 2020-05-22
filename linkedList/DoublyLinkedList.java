@@ -1,7 +1,7 @@
 package linkedList;
 
 public class DoublyLinkedList {
-private DoublyNode head;
+	private DoublyNode head;
 	
 	public void add(int value) {
 		DoublyNode tmp = new DoublyNode(value);
@@ -76,12 +76,12 @@ private DoublyNode head;
 	}
 	
 	public static void main(String[] args) {
-		LinkedList ll = new LinkedList();
-		ll.add(4);
-		ll.add(6);
-		ll.add(8, 2);
+		DoublyLinkedList dll = new DoublyLinkedList();
+		dll.add(4);
+		dll.add(6);
+		dll.add(8, 2);
 //		ll.delete(1);
-		System.out.println(ll);
+		System.out.println(dll);
 		
 //		ArrayList<Integer> al = new ArrayList<Integer>();
 //		al.add(4);
